@@ -54,13 +54,13 @@ if($result->num_rows > 0) {
     
     <div class="container">
         <div class="nav">
-            <p class="title">Личное<img src="/assets/images/angle-up.svg" alt=""></p>
+            <p class="title">Личное</p>
             <a href="">Моё расписание</a>
             <a href="" class="active">Календарь</a>
             <a href="">Клиенты</a>
             <a href="">Настройки</a>
             <a href="auth.php">Выйти</a>
-            <p class="title">Мои календари<img src="/assets/images/angle-up.svg" alt=""></p>
+            <p class="title">Мои календари</p>
             <p class="active">Атлант</p>
             <p class="">Салон</p>
         </div>

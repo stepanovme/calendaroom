@@ -126,6 +126,11 @@ header>.profile>.info>p.role{
     text-decoration: none;
     color: #545c6a;
     font-weight: 600;
+    transition: .2s all;
+}
+
+.content>.content-header>a:hover{
+    color: #0037DA;
 }
 
 .content>.content-header>a.active{
@@ -244,6 +249,14 @@ header>.profile>.info>p.role{
     background-color: white;
     border: 1px solid #e8e9eb;
     min-height: 160px;
+}
+
+.content>.calendar>.calendar-days>.cell:nth-child(29){
+    border-bottom-left-radius: 23px;
+}
+
+.content>.calendar>.calendar-days>.cell:nth-child(35){
+    border-bottom-right-radius: 23px;
 }
 
 .content>.calendar>.calendar-days>.cell.weekend{
