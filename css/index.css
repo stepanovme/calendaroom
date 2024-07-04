@@ -1,0 +1,321 @@
+@import url('style.css');
+@import url('varriables.css');
+
+body{
+    background: #0037DA url('/assets/images/image.png') fixed 0 0 no-repeat;
+    background-size: cover;
+}
+
+header{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header>.nav-header{
+    display: flex;
+    gap: 10px;
+}
+
+header>.nav-header>p.name-company{
+    color: white;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+header>.time>p{
+    color: white;
+    font-size: 32px;
+    font-weight: 300;
+}
+
+header>.profile{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+header>.profile>img{
+    height: 35px;
+    width: 35px;
+    background-color: #919191;
+    padding: 5px;
+    border-radius: 30px;
+}
+
+header>.profile>.info>p{
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+header>.profile>.info>p.role{
+    color: white;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.container{
+    padding: 5px 0;
+    display: grid;
+    grid-template-columns: 10% 90%;
+}
+
+.container>.nav{
+    display: flex;
+    flex-direction: column;
+}
+
+.container>.nav>p, .container>.nav>a{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    padding-left: 20px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.container>.nav>p.title{
+    opacity: .6;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.container>.nav>a:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.container>.nav>p:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.container>.nav>p:active{
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.container>.nav>p.title>img{
+    height: 10px;
+    padding-left: 10px;
+}
+
+.container>.nav>p.active{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.container>.nav>a.active{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.content{
+    padding: 10px 20px;
+}
+
+.content>.content-header{
+    background-color: white;
+    padding: 0 20px;
+    padding-top: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.content>.content-header>a{
+    text-decoration: none;
+    color: #545c6a;
+    font-weight: 600;
+}
+
+.content>.content-header>a.active{
+    color: #0037DA;
+    border-bottom: 2px solid #0037DA;
+    padding-bottom: 20px;
+}
+
+.calendar-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.calendar-title>h1{
+    color: white;
+    font-weight: 300;
+    font-size: 24px;
+    margin-left: 20px;
+}
+
+.calendar-title>.duration{
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(255, 255, 255, .2);
+    border-radius: 18px;
+}
+
+.calendar-title>.duration>p{
+    color: rgba(255, 255, 255, .6);
+    padding: 4px 20px;
+    cursor: pointer;
+    transition: .2s all;
+}
+
+.calendar-title>.duration>p:hover{
+    color: white;
+}
+
+.calendar-title>.duration>p:active{
+    color: white;
+}
+
+.calendar-title>.duration>p.active{
+    color: white;
+}
+
+.content>.calendar>.calendar-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255,255,255,.96);
+    padding: 10px 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 23px;
+    border-top-right-radius: 23px;
+}
+
+.content>.calendar>.calendar-header>.navigate{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.content>.calendar>.calendar-header>.navigate>img{
+    height: 14px;
+    cursor: pointer;
+}
+
+.content>.calendar>.calendar-header>.navigate>p{
+    color: #797979;
+    cursor: pointer;
+    font-weight: 500;
+    transition: .2s all;
+}
+
+.content>.calendar>.calendar-header>.navigate>p:hover{
+    color: #31373f;
+}
+
+.content>.calendar>.calendar-header>p.name{
+    font-size: 24px;
+    font-weight: 300;
+    color: black;
+}
+
+.content>.calendar>.calendar-header>p.name>span{
+    color: #797979;
+}
+
+.content>.calendar>.calendar-subheader{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: rgba(255,255,255,.96);
+    border-bottom: 1px solid #e8e9eb;
+}
+
+.content>.calendar>.calendar-subheader>p{
+    display: flex;
+    justify-content: end;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    color: #797979;
+    font-size: 12px;
+}
+
+.content>.calendar>.calendar-days{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.content>.calendar>.calendar-days>.cell{
+    background-color: white;
+    border: 1px solid #e8e9eb;
+    min-height: 160px;
+}
+
+.content>.calendar>.calendar-days>.cell.weekend{
+    background-color: #f7f9f9;
+}
+
+.content>.calendar>.calendar-days>.cell.current{
+    background-color: #eaf9fe;
+}
+
+.content>.calendar>.calendar-days>.cell>.num{
+    display: flex;
+    justify-content: end;
+    padding: 5px;
+}
+
+.content>.calendar>.calendar-days>.cell.current>.num{
+    padding: 2px 5px 3px;
+    color: #2fc6f6;
+}
+
+.content>.calendar>.calendar-days>.cell>.task{
+    padding: 2px;
+    margin-bottom: 2px;
+}
+
+.content>.calendar>.calendar-days>.cell>.task>.name{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.content>.calendar>.calendar-days>.cell>.task>.name>p{
+    font-size: 14px;
+}
+
+.content>.calendar>.calendar-days>.cell>.task.yellow{
+    background-color: rgb(134, 177, 0);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.blue{
+    background-color: rgb(0, 146, 204);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.lightblue{
+    background-color: rgb(0, 175, 199);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.orange{
+    background-color: rgb(232, 155, 6);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.green{
+    background-color: rgb(0, 179, 140);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.red{
+    background-color: rgb(222, 43, 36);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.purple{
+    background-color: rgb(189, 122, 201);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.grey{
+    background-color: rgb(131, 143, 160);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.darkorange{
+    background-color: rgb(195, 97, 44);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.pink{
+    background-color: rgb(233, 112, 144);
+}
