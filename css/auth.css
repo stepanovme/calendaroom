@@ -1,0 +1,145 @@
+@import url('style.css');
+@import url('varriables.css');
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.container>.bunner{
+    width: 100%;
+    height: 100vh;
+    background: url('/assets/images/auth.jpg') 0 0 no-repeat;
+    background-position: right;
+}
+
+.container>.content{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.container>.content>form{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.container>.content>form>h1{
+    text-align: center;
+    padding-bottom: 20px;
+    font-weight: 500;
+}
+
+.container>.content>form>label{
+    position: relative;
+    display: block;
+    margin: 0;
+    font-size: 14px;
+    opacity: .8;
+    padding-bottom: 5px;
+}
+
+.container>.content>form>input{
+    background-color: transparent;
+    border: 1px solid rgba(98, 125, 139, .5);
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -.01em;
+    outline: none;
+    box-shadow: none;
+    padding: 8px 10px;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.container>.content>form>input:hover{
+    border: 1px solid #357aff;
+}
+
+.container>.content>form>input:focus{
+    border: 1px solid #357aff;
+}
+
+.container>.content>form>button{
+    padding: 12px 10px;
+    display: inline-block;
+    font-family: Roboto, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 13px;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-decoration: none;
+    letter-spacing: normal;
+    user-select: none;
+    color: #000;
+    background-color: #ffe700;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: .2s all;
+}
+
+.container>.content>form>button:hover{
+    background-color: #ecd500;
+}
+
+.container>.content>form>button:active{
+    background-color: #d8c200;
+}
+
+.container>.content>form>a{
+    text-decoration: none;
+    text-align: center;
+    margin-top: 20px;
+    color: black;
+    opacity: .8;
+}
+
+.container>.content>form>a:hover{
+    opacity: 1;
+}
+
+.container>.content>form>a:active{
+    opacity: 1;
+}
+
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 1s forwards;
+}
+
+.fade-in:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.fade-in:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.fade-in:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.fade-in:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

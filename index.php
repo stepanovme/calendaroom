@@ -1,3 +1,19 @@
+<?php
+session_start();
+if(!isset($_SESSION["userId"])) {
+    header("Location: auth.php");
+}
+
+$userId = $_SESSION["userId"];
+$name = $_SESSION["name"];
+$surname = $_SESSION["surname"];
+$patronymic = $_SESSION["patronymic"];
+$roleId = $_SESSION["roleId"];
+$phone = $_SESSION["phone"];
+$email = $_SESSION["email"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -34,6 +50,7 @@
             <a href="" class="active">Календарь</a>
             <a href="">Клиенты</a>
             <a href="">Настройки</a>
+            <a href="auth.php">Выйти</a>
             <p class="title">Мои календари<img src="/assets/images/angle-up.svg" alt=""></p>
             <p class="active">Атлант</p>
             <p class="">Салон</p>
@@ -94,6 +111,18 @@
                     </div>
                     <div class="cell weekend">
                         <div class="num">6</div>
+                        <div class="task lightblue">
+                            <div class="name">
+                                <p class="name">Название события</p>
+                                <p class="time">12:00-13:00</p>
+                            </div>
+                        </div> 
+                        <div class="task lightblue">
+                            <div class="name">
+                                <p class="name">Название события</p>
+                                <p class="time">12:00-13:00</p>
+                            </div>
+                        </div> 
                     </div>
                     <div class="cell weekend">
                         <div class="num">7</div>
@@ -132,6 +161,18 @@
                     </div>
                     <div class="cell">
                         <div class="num">4</div>
+                        <div class="task lightblue">
+                            <div class="name">
+                                <p class="name">Название события</p>
+                                <p class="time">12:00-13:00</p>
+                            </div>
+                        </div> 
+                        <div class="task lightblue">
+                            <div class="name">
+                                <p class="name">Название события</p>
+                                <p class="time">12:00-13:00</p>
+                            </div>
+                        </div> 
                     </div>
                     <div class="cell">
                         <div class="num">5</div>
