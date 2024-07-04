@@ -12,6 +12,15 @@ $roleId = $_SESSION["roleId"];
 $phone = $_SESSION["phone"];
 $email = $_SESSION["email"];
 
+require_once("config.php");
+
+$sql = "SELECT * FROM role WHERE roleId = $roleId";
+$result = $conn->query($sql);
+
+if($result->num_rows > 0) { 
+    $row = $result->fetch_assoc();
+    $roleName = $row['roleName'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,13 +41,13 @@ $email = $_SESSION["email"];
             <p class="name-company">Атлант</p>
         </div>
         <div class="time">
-            <p>9:43</p>
+            <p id="time">--:--</p>
         </div>
         <div class="profile">
             <img src="/assets/images/user-solid.svg" alt="">
             <div class="info">
-                <p class="name">Степан Степанов</p>
-                <p class="role">Администратор</p>
+                <p class="name"><?php echo $name .' '. $surname;?></p>
+                <p class="role"><?php echo $roleName;?></p>
             </div>
         </div>
     </header>
@@ -231,5 +240,21 @@ $email = $_SESSION["email"];
             </div>
         </div>
     </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const options = {
+                timeZone: 'Europe/Moscow',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+            const timeString = new Intl.DateTimeFormat('ru-RU', options).format(now);
+            document.getElementById('time').textContent = timeString;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
 </body>
 </html>
