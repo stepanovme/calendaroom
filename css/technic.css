@@ -330,6 +330,95 @@ header>.profile>.info>p.role{
 
 
 
+.modal2 {
+    position: fixed; /* Change from absolute to fixed */
+    top: 0;
+    left: 0;
+    display: none; /* Hidden by default */
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(53, 53, 53, 0.5);
+}
+
+.modal2.active {
+    display: flex; /* Show the modal when active */
+}
+
+.modal2>.content {
+    background-color: white;
+    padding: 20px;
+    border: 0;
+    border-radius: 6px;
+    position: relative;
+}
+
+.modal2>.content>p.modal-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.modal2>.content>form {
+    display: grid;
+    grid-template-columns: 220px 300px;
+    gap: 20px;
+    align-items: center;
+}
+
+.modal2>.content>form>input, .modal2>.content>form>select {
+    border: 1px solid #c6cdd3;
+    padding: 6px;
+    border-radius: 6px;
+    outline: none;
+}
+
+.modal2>.content>form>input:hover, .modal2>.content>form>select:hover {
+    border: 1px solid #bbed21;
+}
+
+.modal2>.content>form>input:focus, .modal2>.content>form>select:focus {
+    border: 1px solid #bbed21;
+}
+
+.modal2>.content>form>button {
+    padding: 12px 36px;
+    background-color: #bbed21;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .2s all;
+}
+
+.modal2>.content>form>button:hover {
+    background-color: #a7d41e;
+}
+
+.modal2>.content>form>button:active {
+    background-color: #92b91b;
+}
+
+.modal2>.content>form>button[type="button"] {
+    width: 220px;
+    padding: 12px 36px;
+    background-color: #ed2121;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    transition: .2s all;
+}
+
+.modal2>.content>form>button[type="button"]:hover {
+    background-color: #c91d1d;
+}
+
+.modal2>.content>form>button[type="button"]:active {
+    background-color: #a81717;
+}
+
 .content>.calendar>.calendar-header{
     display: flex;
     flex-direction: row;

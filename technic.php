@@ -112,7 +112,7 @@ if ($result->num_rows > 0) {
                     <p class="volume">Объём заднего ковша: <span><?php echo $technic['backBucketVolume']; ?> м³</span></p>
                     <p class="digging-depth">Глубина копания: <span><?php echo $technic['maxDiggingDepth']; ?> м³</span></p>
                     <div class="overlay">
-                        <button class="view-button">Посмотреть</button>
+                        <button class="view-button" data-id="<?php echo $technic['technicId']; ?>">Посмотреть</button>
                     </div>
                 </div>
                 <?php } ?>
@@ -121,6 +121,35 @@ if ($result->num_rows > 0) {
     </div>
 
     <div class="modal" id="modal">
+        <div class="content">
+            <p class="modal-title">Добавить спецтехнику</p>
+            <form id="addTechnicForm">
+                <label for="technicType">Тип спецтехники</label>
+                <select id="technicType">
+                    <option value="1">Эсковатор-погрузчик</option>
+                </select>
+                <label for="technicName">Название</label>
+                <input type="text" id="technicName" placeholder="Большой экскаватор SWE335F">
+                <label for="technicWeight">Масса, кг</label>
+                <input type="text" id="technicWeight" placeholder="9300">
+                <label for="technicCapacity">Грузоподъёмность, кг</label>
+                <input type="text" id="technicCapacity" placeholder="2500">
+                <label for="technicEngineModel">Модель двигателя</label>
+                <input type="text" id="technicEngineModel" placeholder="Yuchai">
+                <label for="technicEnginePower">Мощность двигателя, л.с.</label>
+                <input type="text" id="technicEnginePower" placeholder="102">
+                <label for="technicFrontBucketVolume">Объём переднего ковша, м<sup>3</sup></label>
+                <input type="text" id="technicFrontBucketVolume" placeholder="1.2">
+                <label for="technicBackBucketVolume">Объём заднего ковша, м<sup>3</sup></label>
+                <input type="text" id="technicBackBucketVolume" placeholder="0.3">
+                <label for="technicDiggingDepth">Макс. глубина копания, м<sup>3</sup></label>
+                <input type="text" id="technicDiggingDepth" placeholder="4.85">
+                <button type="submit">Добавить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal2">
         <div class="content">
             <p class="modal-title">Добавить спецтехнику</p>
             <form id="addTechnicForm">
@@ -190,6 +219,11 @@ if ($result->num_rows > 0) {
             const form = document.getElementById('addTechnicForm');
             const technicsContainer = document.getElementById('technics');
 
+            const viewButtons = document.querySelectorAll('button.view-button');
+            const modal2 = document.querySelector('.modal2');
+            const modal2Content = modal2.querySelector('.content');
+            const technics = <?php echo json_encode($technics); ?>;
+
             const ws = new WebSocket('ws://localhost:8080');
             ws.onmessage = function(event) {
                 const data = JSON.parse(event.data);
@@ -254,6 +288,59 @@ if ($result->num_rows > 0) {
                 }).catch(error => {
                     console.error('Ошибка при добавлении техники:', error);
                 });
+            });
+
+
+
+
+
+            function openModalWithData(technic) {
+                modal2Content.innerHTML = `
+                        <p class="modal-title">Информация о спецтехнике</p>
+                        <form id="editTechnicForm">
+                            <label for="technicName">Название</label>
+                            <input type="text" id="technicName" placeholder="Большой экскаватор SWE335F" value="${technic.name}">
+                            <label for="technicWeight">Масса, кг</label>
+                            <input type="text" id="technicWeight" placeholder="9300" value="${technic.mass}">
+                            <label for="technicCapacity">Грузоподъёмность, кг</label>
+                            <input type="text" id="technicCapacity" placeholder="2500" value="${technic.loadCapacity}">
+                            <label for="technicEngineModel">Модель двигателя</label>
+                            <input type="text" id="technicEngineModel" placeholder="Yuchai" value="${technic.engineModel}">
+                            <label for="technicEnginePower">Мощность двигателя, л.с.</label>
+                            <input type="text" id="technicEnginePower" placeholder="102" value="${technic.enginePower}">
+                            <label for="technicFrontBucketVolume">Объём переднего ковша, м<sup>3</sup></label>
+                            <input type="text" id="technicFrontBucketVolume" placeholder="1.2" value="${technic.frontBucketVolume}">
+                            <label for="technicBackBucketVolume">Объём заднего ковша, м<sup>3</sup></label>
+                            <input type="text" id="technicBackBucketVolume" placeholder="0.3" value="${technic.backBucketVolume}">
+                            <label for="technicDiggingDepth">Макс. глубина копания, м<sup>3</sup></label>
+                            <input type="text" id="technicDiggingDepth" placeholder="4.85" value="${technic.maxDiggingDepth}">
+                            <input type="hidden" id="technicId" value="${technic.technicId}">
+                            <button type="submit">Применить</button>
+                            <button type="button">Удалить</button>
+                        </form>
+                `;
+                modal2.classList.add('active');
+                console.log(<?php echo json_encode($technics); ?>);
+            }
+
+            // Обработчики для кнопок "Посмотреть"
+            viewButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const technicId = button.dataset.id;
+                    const technic = technics.find(t => t.technicId == technicId);
+                    if (technic) {
+                        openModalWithData(technic);
+                    } else {
+                        console.error(`Техника с ID ${technicId} не найдена.`);
+                    }
+                });
+            });
+
+            // Закрытие модального окна при клике на фон
+            modal2.addEventListener('click', (event) => {
+                if (event.target === modal2) {
+                    modal2.classList.remove('active');
+                }
             });
         });
 
