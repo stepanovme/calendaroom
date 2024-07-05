@@ -66,7 +66,7 @@ if($result->num_rows > 0) {
             <a href="">Моё расписание</a>
             <a href="" class="active">Календарь</a>
             <a href="">Клиенты</a>
-            <a href="">Спецтехника</a>
+            <a href="technic.php">Спецтехника</a>
             <a href="">Настройки</a>
             <a href="auth.php">Выйти</a>
             <p class="title">Мои календари</p>

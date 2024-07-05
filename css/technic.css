@@ -1,0 +1,485 @@
+@import url('style.css');
+@import url('varriables.css');
+
+body{
+    background: #0037DA url('/assets/images/image.png') fixed 0 0 no-repeat;
+    background-size: cover;
+}
+
+header{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header>.nav-header{
+    display: flex;
+    gap: 10px;
+}
+
+header>.nav-header>p.name-company{
+    color: white;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+header>.time>p{
+    color: white;
+    font-size: 32px;
+    font-weight: 300;
+}
+
+header>.profile{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+header>.profile>img{
+    height: 35px;
+    width: 35px;
+    background-color: #919191;
+    padding: 5px;
+    border-radius: 30px;
+}
+
+header>.profile>.info>p{
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+header>.profile>.info>p.role{
+    color: white;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.container{
+    padding: 5px 0;
+    display: grid;
+    grid-template-columns: 10% 90%;
+}
+
+.container>.nav{
+    display: flex;
+    flex-direction: column;
+}
+
+.container>.nav>p, .container>.nav>a{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    padding-left: 20px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.container>.nav>p.title{
+    opacity: .6;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.container>.nav>a:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.container>.nav>p:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.container>.nav>p:active{
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.container>.nav>p.title>img{
+    height: 10px;
+    padding-left: 10px;
+}
+
+.container>.nav>p.active{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.container>.nav>a.active{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content{
+    padding: 10px 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.content>.content-header{
+    background-color: white;
+    padding: 0 20px;
+    padding-top: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.content>.content-header>a{
+    text-decoration: none;
+    color: #545c6a;
+    font-weight: 600;
+    transition: .2s all;
+}
+
+.content>.content-header>a:hover{
+    color: #0037DA;
+}
+
+.content>.content-header>a.active{
+    color: #0037DA;
+    border-bottom: 2px solid #0037DA;
+    padding-bottom: 20px;
+}
+
+.technik-title{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.technik-title>h1{
+    color: white;
+    font-weight: 300;
+    font-size: 24px;
+    margin-left: 20px;
+}
+
+.technik-title>button{
+    padding: 12px 36px;
+    background-color: #bbed21;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .2s all;
+}
+
+.technik-title>button:hover {
+    background-color: #a7d41e;
+}
+
+.technik-title>button:active {
+    background-color: #92b91b;
+}
+
+.container>.content>.technics {
+    display: grid;
+    grid-template-columns: repeat(5, 312px);
+    gap: 20px;
+}
+
+.content>.technics>.card {
+    position: relative;
+    padding: 20px;
+    background-color: white;
+    border-radius: 7px;
+    border: 1px solid #e8e9eb;
+    overflow: hidden;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    border: 0;
+}
+
+.content>.technics>.card>img {
+    width: 100%;
+}
+
+.content>.technics>.card>p.name {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.content>.technics>.card>p {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.content>.technics>.card>p>span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #8e8e8e;
+}
+
+.content>.technics>.card>.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(53, 53, 53, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    backface-visibility: hidden;
+}
+
+.content>.technics>.card:hover .overlay {
+    opacity: 1;
+}
+
+.content>.technics>.card .view-button {
+    padding: 12px 36px;
+    background-color: #bbed21;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .2s all;
+}
+
+.content>.technics>.card .view-button:hover {
+    background-color: #a7d41e;
+}
+
+.content>.technics>.card .view-button:active {
+    background-color: #92b91b;
+}
+
+.modal {
+    position: fixed; /* Change from absolute to fixed */
+    top: 0;
+    left: 0;
+    display: none; /* Hidden by default */
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(53, 53, 53, 0.5);
+}
+
+.modal.active {
+    display: flex; /* Show the modal when active */
+}
+
+.modal>.content {
+    background-color: white;
+    padding: 20px;
+    border: 0;
+    border-radius: 6px;
+    position: relative;
+}
+
+.modal>.content>p.modal-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.modal>.content>form {
+    display: grid;
+    grid-template-columns: 220px 300px;
+    gap: 20px;
+    align-items: center;
+}
+
+.modal>.content>form>input, .modal>.content>form>select {
+    border: 1px solid #c6cdd3;
+    padding: 6px;
+    border-radius: 6px;
+    outline: none;
+}
+
+.modal>.content>form>input:hover, .modal>.content>form>select:hover {
+    border: 1px solid #bbed21;
+}
+
+.modal>.content>form>input:focus, .modal>.content>form>select:focus {
+    border: 1px solid #bbed21;
+}
+
+.modal>.content>form>button {
+    padding: 12px 36px;
+    background-color: #bbed21;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .2s all;
+}
+
+.modal>.content>form>button:hover {
+    background-color: #a7d41e;
+}
+
+.modal>.content>form>button:active {
+    background-color: #92b91b;
+}
+
+
+
+.content>.calendar>.calendar-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255,255,255,.96);
+    padding: 10px 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 23px;
+    border-top-right-radius: 23px;
+}
+
+.content>.calendar>.calendar-header>.navigate{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.content>.calendar>.calendar-header>.navigate>img{
+    height: 14px;
+    cursor: pointer;
+}
+
+.content>.calendar>.calendar-header>.navigate>p{
+    color: #797979;
+    cursor: pointer;
+    font-weight: 500;
+    transition: .2s all;
+}
+
+.content>.calendar>.calendar-header>.navigate>p:hover{
+    color: #31373f;
+}
+
+.content>.calendar>.calendar-header>p.name{
+    font-size: 24px;
+    font-weight: 300;
+    color: black;
+}
+
+.content>.calendar>.calendar-header>p.name>span{
+    color: #797979;
+}
+
+.content>.calendar>.calendar-subheader{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: rgba(255,255,255,.96);
+    border-bottom: 1px solid #e8e9eb;
+}
+
+.content>.calendar>.calendar-subheader>p{
+    display: flex;
+    justify-content: end;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    color: #797979;
+    font-size: 12px;
+}
+
+.content>.calendar>.calendar-days{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.content>.calendar>.calendar-days>.cell{
+    background-color: white;
+    border: 1px solid #e8e9eb;
+    min-height: 160px;
+}
+
+.content>.calendar>.calendar-days>.cell:nth-child(29){
+    border-bottom-left-radius: 23px;
+}
+
+.content>.calendar>.calendar-days>.cell:nth-child(35){
+    border-bottom-right-radius: 23px;
+}
+
+.content>.calendar>.calendar-days>.cell.weekend{
+    background-color: #f7f9f9;
+}
+
+.content>.calendar>.calendar-days>.cell.current{
+    background-color: #eaf9fe;
+}
+
+.content>.calendar>.calendar-days>.cell>.num{
+    display: flex;
+    justify-content: end;
+    padding: 5px;
+}
+
+.content>.calendar>.calendar-days>.cell.current>.num{
+    padding: 2px 5px 3px;
+    color: #2fc6f6;
+}
+
+.content>.calendar>.calendar-days>.cell>.task{
+    padding: 2px;
+    margin-bottom: 2px;
+}
+
+.content>.calendar>.calendar-days>.cell>.task>.name{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.content>.calendar>.calendar-days>.cell>.task>.name>p{
+    font-size: 14px;
+}
+
+.content>.calendar>.calendar-days>.cell>.task.yellow{
+    background-color: rgb(134, 177, 0);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.blue{
+    background-color: rgb(0, 146, 204);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.lightblue{
+    background-color: rgb(0, 175, 199);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.orange{
+    background-color: rgb(232, 155, 6);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.green{
+    background-color: rgb(0, 179, 140);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.red{
+    background-color: rgb(222, 43, 36);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.purple{
+    background-color: rgb(189, 122, 201);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.grey{
+    background-color: rgb(131, 143, 160);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.darkorange{
+    background-color: rgb(195, 97, 44);
+}
+
+.content>.calendar>.calendar-days>.cell>.task.pink{
+    background-color: rgb(233, 112, 144);
+}
