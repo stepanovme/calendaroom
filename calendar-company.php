@@ -66,8 +66,8 @@ if($result->num_rows > 0) {
         </div>
         <div class="content">
             <div class="content-header">
-                <a href="" class="active">Мой календарь</a>
-                <a href="calendar-company.php">Календарь компании</a>
+                <a href="index.php" >Мой календарь</a>
+                <a href="" class="active">Календарь компании</a>
             </div>
             <div class="calendar-title">
                 <h1>Мой календарь</h1>
@@ -99,12 +99,6 @@ if($result->num_rows > 0) {
                 <div class="calendar-days">
                     <div class="cell">
                         <div class="num">1</div>
-                        <div class="task lightblue">
-                            <div class="name">
-                                <p class="name">Название события</p>
-                                <p class="time">12:00-13:00</p>
-                            </div>
-                        </div> 
                     </div>
                     <div class="cell">
                         <div class="num">2</div>
@@ -119,19 +113,7 @@ if($result->num_rows > 0) {
                         <div class="num">5</div>
                     </div>
                     <div class="cell weekend">
-                        <div class="num">6</div>
-                        <div class="task lightblue">
-                            <div class="name">
-                                <p class="name">Название события</p>
-                                <p class="time">12:00-13:00</p>
-                            </div>
-                        </div> 
-                        <div class="task lightblue">
-                            <div class="name">
-                                <p class="name">Название события</p>
-                                <p class="time">12:00-13:00</p>
-                            </div>
-                        </div> 
+                        <div class="num">6</div> 
                     </div>
                     <div class="cell weekend">
                         <div class="num">7</div>
