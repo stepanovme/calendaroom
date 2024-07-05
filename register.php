@@ -15,6 +15,7 @@
         <div class="content">
             <form onsubmit="event.preventDefault(); registerUser();" class="fade-in">
                 <h1>Регистрация</h1>
+                <div id="error-message" style="color: red; display: none;"></div>
                 <label for="">Имя</label>
                 <input type="text" placeholder="Степан" id="register-name">
                 <label for="">Фамилия</label>
@@ -27,6 +28,8 @@
                 <input type="text" placeholder="example@gmail.com" id="register-email">
                 <label for="">Пароль</label>
                 <input type="password" placeholder="●●●●●●●●●●●●●" id="register-password">
+                <label for="">Повторить пароль</label>
+                <input type="password" placeholder="●●●●●●●●●●●●●" id="register-repeat-password">
                 <button type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
                 <a href="auth.php">Уже есть аккаунт?</a>
             </form>
@@ -38,6 +41,7 @@
             const email = document.querySelector('#register-email').value;
             const phone = document.querySelector('#register-phone').value;
             const password = document.querySelector('#register-password').value;
+            const repeatPassword = document.querySelector('#register-repeat-password').value;
             const name = document.querySelector('#register-name').value;
             const surname = document.querySelector('#register-surname').value;
             const patronymic = document.querySelector('#register-patronymic').value;
@@ -48,7 +52,7 @@
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ email, phone, password, name, surname, patronymic }),
+                    body: JSON.stringify({ email, phone, password, repeatPassword, name, surname, patronymic }),
                 });
 
                 if (!response.ok) {
@@ -56,7 +60,24 @@
                 }
 
                 const result = await response.json();
-                alert(result.message);
+                const errorMessage = document.querySelector('#error-message');
+                
+                if (result.message === 'Данный пользователь уже зарегистрирован в системе') {
+                    errorMessage.textContent = result.message;
+                    errorMessage.style.display = 'block';
+                    errorMessage.style.textAlign = 'center';
+                    errorMessage.style.paddingBottom = '20px';
+                } else if(result.message === 'Пароли не совпадают'){ 
+                    errorMessage.textContent = result.message;
+                    errorMessage.style.display = 'block';
+                    errorMessage.style.textAlign = 'center';
+                    errorMessage.style.paddingBottom = '20px';
+                } else if(result.message === 'Пользователь зарегистрирован!'){
+                    window.location.replace('http://calendaroom.ru/auth.php')
+                } else {
+                    errorMessage.style.display = 'none';
+                    alert(result.message);
+                }
             } catch (error) {
                 alert('There was a problem with your registration request: ' + error.message);
             }

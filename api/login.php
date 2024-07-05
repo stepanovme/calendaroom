@@ -42,9 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['email'] = $user['email'];
         $_SESSION['phone'] = $user['phone'];
     } else {
-        echo json_encode(['status' => 'error', 'message' => 'Invalid email or password']);
+        echo json_encode(['status' => 'error', 'message' => 'Неверный логин или пароль']);
     }
-
     $stmt->close();
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);

@@ -108,8 +108,20 @@ header>.profile>.info>p.role{
     background-color: rgba(255, 255, 255, 0.5);
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .content{
     padding: 10px 20px;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .content>.content-header{

@@ -5,14 +5,21 @@ if(!isset($_SESSION["userId"])) {
 }
 
 $userId = $_SESSION["userId"];
-$name = $_SESSION["name"];
-$surname = $_SESSION["surname"];
-$patronymic = $_SESSION["patronymic"];
-$roleId = $_SESSION["roleId"];
-$phone = $_SESSION["phone"];
-$email = $_SESSION["email"];
 
 require_once("config.php");
+
+$sql = "SELECT * FROM user WHERE userId = $userId";
+$result = $conn->query($sql);
+
+if($result->num_rows > 0) { 
+    $row = $result->fetch_assoc();
+    $roleId = $row['roleId'];
+    $name = $row['name'];
+    $surname = $row['surname'];
+    $patronymic = $row['patronymic'];
+    $email = $row['email'];
+    $phone = $row['phone'];
+}
 
 $sql = "SELECT * FROM role WHERE roleId = $roleId";
 $result = $conn->query($sql);
@@ -21,6 +28,7 @@ if($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $roleName = $row['roleName'];
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -58,6 +66,7 @@ if($result->num_rows > 0) {
             <a href="">Моё расписание</a>
             <a href="" class="active">Календарь</a>
             <a href="">Клиенты</a>
+            <a href="">Спецтехника</a>
             <a href="">Настройки</a>
             <a href="auth.php">Выйти</a>
             <p class="title">Мои календари</p>
@@ -255,6 +264,8 @@ if($result->num_rows > 0) {
 
         setInterval(updateTime, 1000);
         updateTime();
+
+        
     </script>
 </body>
 </html>

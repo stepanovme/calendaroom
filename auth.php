@@ -18,6 +18,7 @@ session_start();
         <div class="content">
             <form onsubmit="event.preventDefault(); loginUser();" class="fade-in">
                 <h1>Авторизация</h1>
+                <div id="error-message" style="display:none; color: red;"></div>
                 <label for="">Введите телефон или email</label>
                 <input type="text" placeholder="example@gmail.com, 89539931159" id="login-email">
                 <label for="">Пароль</label>
@@ -47,8 +48,15 @@ session_start();
                 }
 
                 const result = await response.json();
+                const errorMessage = document.querySelector('#error-message');
+
                 if (result.status === 'success') {
                     window.location.href = 'index.php';
+                } else if(result.message === 'Неверный логин или пароль'){
+                    errorMessage.textContent = result.message;
+                    errorMessage.style.display = 'block';
+                    errorMessage.style.textAlign = 'center';
+                    errorMessage.style.paddingBottom = '20px';
                 } else {
                     alert(result.message);
                 }
